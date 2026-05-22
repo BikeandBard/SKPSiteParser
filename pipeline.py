@@ -87,6 +87,11 @@ def run_pipeline(config: Config) -> tuple[pd.DataFrame, dict[str, list[str]]]:
         # Анализируем через DeepSeek
         summary = analyze_text(clean_text, config, logger)
 
+        # Если API вернул пустой ответ — заменяем на сообщение
+        if not summary or not summary.strip():
+            summary = "⚠️ DeepSeek API вернул пустой ответ для этой страницы"
+            logger.warning("DeepSeek API вернул пустой ответ для: %s", url)
+
         rows.append({
             "Дата анализа": datetime.now().strftime("%Y-%m-%d %H:%M"),
             "URL": url,
