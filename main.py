@@ -1,15 +1,22 @@
 #!/usr/bin/env python3
 """
-main.py — Точка входа в приложение.
+main.py — Точка входа в приложение SiteParser.
 
 Запускает полный пайплайн:
-  1. Обход сайта
-  2. Анализ через DeepSeek
-  3. Экспорт в Excel
+  1. Обход сайта (crawler)
+  2. Анализ через DeepSeek (deepseek_client)
+  3. Экспорт в Excel (excel_exporter)
 
 Использование:
+    # Убедитесь, что .env настроен:
+    cp .env.example .env
+    # Заполните DEEPSEEK_API_KEY в .env
+
+    # Запуск с .env по умолчанию:
     python main.py
-    python main.py --config custom_config.env
+
+    # Запуск с кастомным конфигом:
+    python main.py --config /path/to/custom.env
 """
 
 import argparse

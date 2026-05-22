@@ -7,8 +7,9 @@ output/
 # Logs
 *.log
 
-# Environment (API keys)
-config.env
+# Environment (API keys) — НЕ коммитить .env с реальными ключами!
+.env
+# .env.example — шаблон (коммитим)
 
 # Python
 __pycache__/

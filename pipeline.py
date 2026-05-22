@@ -8,6 +8,7 @@ import time
 from datetime import datetime
 
 import pandas as pd
+import requests
 
 from config import Config
 from crawler import crawl
@@ -50,7 +51,6 @@ def run_pipeline(config: Config) -> tuple[pd.DataFrame, dict[str, list[str]]]:
         logger.info("[%d/%d] Анализирую: %s", i, len(all_urls), url)
 
         # Загружаем HTML
-        import requests
         try:
             resp = requests.get(
                 url,

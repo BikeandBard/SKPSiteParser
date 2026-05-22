@@ -83,7 +83,7 @@ def analyze_text(text: str, config: Config, logger: logging.Logger | None = None
         return "⚠️ Недостаточно данных (текст короче 50 символов)"
 
     if not config.deepseek_api_key or config.deepseek_api_key == "sk-xxx":
-        return "⚠️ DeepSeek API ключ не настроен (config.env)"
+        return "⚠️ DeepSeek API ключ не настроен. Укажите DEEPSEEK_API_KEY в .env"
 
     try:
         return _call_deepseek_api(config.deepseek_api_key, text, config.deepseek_model)

@@ -5,6 +5,8 @@ html_cleaner.py — Очистка HTML-контента.
 Обрезает текст до max_length символов.
 """
 
+import re
+
 from bs4 import BeautifulSoup
 
 
@@ -38,7 +40,6 @@ def clean_html(html: str, max_length: int = 8000) -> str:
     text = soup.get_text(separator=" ", strip=True)
 
     # Схлопываем пробелы
-    import re
     text = re.sub(r"\s+", " ", text).strip()
 
     # Обрезаем
